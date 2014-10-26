@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
     LinuxCommand command("echo \'Superman\'");
     os = command.run();
 #elif defined(Q_OS_DARWIN)
-    os = "Mac OS"
+    os = "Mac OS";
 #endif
    ui->label->setText("OS is a " + os);
    ui->label->adjustSize();
