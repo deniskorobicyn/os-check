@@ -8,9 +8,7 @@ public:
     LinuxCommand(QString);
     ~LinuxCommand();
 
-    int run();
-private:
-    void synchronize();
+    QString run();
 };
 
 #endif // LINUXCOMMAND_H

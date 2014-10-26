@@ -1,9 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "linuxcommand.h"
-#include <QSysInfo>
-#include <QGuiApplication>
 
+#ifdef Q_OS_LINUX
+  #include "linuxcommand.h"
+#endif
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -23,8 +23,8 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 #elif defined(Q_OS_LINUX)
     os = "Linux";
-    LinuxCommand command("echo \'test\'");
-    int status = command.run();
+    LinuxCommand command("echo \'Superman\'");
+    os = command.run();
 #elif defined(Q_OS_DARWIN)
     os = "Mac OS"
 #endif
