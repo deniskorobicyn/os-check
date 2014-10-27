@@ -1,35 +1,23 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
-#ifdef Q_OS_LINUX
-  #include "linuxcommand.h"
-#endif
+#include <QProcess>
+#include <iostream>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QString os("Unsupported");
-
-#ifdef Q_OS_WIN
-    switch(QSysInfo::windowsVersion())
-    {
-      case QSysInfo::WV_2000: os = "Windows 2000"; break;
-      case QSysInfo::WV_XP: os = "Windows XP"; break;
-      case QSysInfo::WV_VISTA: os = "Windows Vista"; break;
-      case QSysInfo::WV_WINDOWS7: os = "Windows 7"; break;
-      case QSysInfo::WV_WINDOWS8: os = "Windows 8"; break;
-      default: os = "Windows";
-    }
-#elif defined(Q_OS_LINUX)
-    os = "Linux";
-    LinuxCommand command("echo \'Superman\'");
-    os = command.run();
-#elif defined(Q_OS_DARWIN)
-    os = "Mac OS";
+    connect(ui->pushButton, SIGNAL(released()), this, SLOT(reboot()));
+}
+void MainWindow::reboot(){
+#ifdef Q_OS_LINUX
+    QProcess::execute("dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 \"org.freedesktop.login1.Manager.Reboot\" boolean:true");
+#else
+    QMessageBox messageBox;
+    messageBox.critical(0,"Error","Unsupported OS !");
+    messageBox.setFixedSize(500,200);
 #endif
-   ui->label->setText("OS is a " + os);
-   ui->label->adjustSize();
+
 }
 
 MainWindow::~MainWindow()

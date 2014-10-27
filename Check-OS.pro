@@ -13,10 +13,8 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    linuxcommand.cpp
+        mainwindow.cpp
 
-HEADERS  += mainwindow.h \
-    linuxcommand.h
+HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
