@@ -9,11 +9,12 @@ This application is a beginning of unified remote reboot tool for all operating 
  2. No root passwords wher running
  3. Automatic detect how booting systems
  4. No dangerous hacks
+ 5. Autorization through OS servicies like polkit, Autorization Service, etc.
  
-## First Beta Version
+## First Alpha Version
 
- Only for Windows and Ubuntu (maybe and other dister too) boot with grub
+ Only for Windows and Ubuntu (maybe and other disters too) boot with grub
  1. No installer
  2. Just grub updater
  3. Parsing grub menu entities
- 4. user can choose what os he want to boot after reboot
+ 4. user can choose what OS he want to boot after reboot
