@@ -13,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::reboot(){
 #ifdef Q_OS_LINUX
     QProcess::execute("dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 \"org.freedesktop.login1.Manager.Reboot\" boolean:true");
+#elif defined(Q_OS_WINDOWS)
+    QProcess::execute("shutdown -r");
 #else
     QMessageBox messageBox;
     messageBox.critical(0,"Error","Unsupported OS !");
