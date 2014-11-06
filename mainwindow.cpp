@@ -1,14 +1,27 @@
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QProcess>
 #include <QMessageBox>
 #include <iostream>
+#include <QApplication>
+#include "polkitqt1-gui-actionbutton.h"
+#include "polkitqt1-gui-actionbuttons.h"
+#include "polkitqt1-authority.h"
+#include <QtCore/QDebug>
+
+#include <QtDBus/QDBusMessage>
+#include <QtDBus/QDBusConnection>
+
+using namespace PolkitQt1;
+using namespace PolkitQt1::Gui;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    connect(ui->pushButton, SIGNAL(released()), this, SLOT(reboot()));
+    ActionButton *bt = new ActionButton(kickPB, "org.qt.policykit.examples.kick", this);
+    connect(bt, SIGNAL(released()), this, SLOT(reboot()));
 }
 void MainWindow::reboot(){
 #ifdef Q_OS_LINUX
@@ -25,5 +38,6 @@ void MainWindow::reboot(){
 
 MainWindow::~MainWindow()
 {
+    delete bt;
     delete ui;
 }
