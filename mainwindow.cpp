@@ -5,16 +5,14 @@
 #include <QMessageBox>
 #include <iostream>
 #include <QApplication>
-#include "polkitqt1-gui-actionbutton.h"
-#include "polkitqt1-gui-actionbuttons.h"
-#include "polkitqt1-authority.h"
 #include <QtCore/QDebug>
-
+#include <ActionButton>
+#include <ActionButtons>
+#include <Context>
+#include <Auth>
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusConnection>
 
-using namespace PolkitQt1;
-using namespace PolkitQt1::Gui;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
