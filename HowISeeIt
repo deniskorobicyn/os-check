@@ -1,5 +1,5 @@
 Linux
-1) Polikit autorization
+1) Polikit autorization (with QT)
 2) in runtime all sudo update-grub, sudo sed /etc/grub/cfg/... etc
 Windows, Mac rEFI,
 I should read about it, before deside what to do
