@@ -10,6 +10,9 @@
 *.dll
 *.dylib
 
+#Build
+/build/
+
 # Qt-es
 /.qmake.cache
 /.qmake.stash
