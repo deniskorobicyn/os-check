@@ -12,6 +12,7 @@
 
 #Build
 /build/
+CMakeLists.txt.user
 
 # Qt-es
 /.qmake.cache

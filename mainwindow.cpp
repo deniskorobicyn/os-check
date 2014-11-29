@@ -6,12 +6,6 @@
 #include <iostream>
 #include <QApplication>
 #include <QtCore/QDebug>
-#ifdef Q_OS_LINUX
-#include <ActionButton>
-#include <ActionButtons>
-#include <Context>
-#include <Auth>
-#endif
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusConnection>
 
